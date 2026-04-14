@@ -22,7 +22,7 @@
       <div class="container site-header__inner">
         <a class="site-header__brand" href="#top" aria-label="Lex and Co home">
           <img
-            src="Logo_Lex_&amp;_Co.png"
+            src="Lex &amp; Co.webp"
             width="220"
             height="220"
             alt="Lex and Co logo"
@@ -53,7 +53,6 @@
         <a href="#about">About</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
-        <a class="mobile-nav__cta" href="#contact">Book Consultation</a>
       </nav>
     </header>
 
@@ -78,55 +77,44 @@
       <section class="stats section section--reveal" aria-label="Firm metrics">
         <div class="container stats__grid">
           <article class="stats__card">
-            <div class="stats__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" role="presentation" focusable="false">
-                <circle cx="32" cy="34" r="18"></circle>
-                <path d="M24 8h16"></path>
-                <path d="M20 13l6 6"></path>
-                <path d="M40 19l4-4"></path>
-                <path d="M32 34l8-6"></path>
-                <path d="M32 34v-9"></path>
+            <span class="stats__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M12 8v4l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
-            </div>
+            </span>
             <p class="stats__number" data-target="10" data-suffix="+">0+</p>
             <p class="stats__label">Years of Experience</p>
           </article>
           <article class="stats__card">
-            <div class="stats__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" role="presentation" focusable="false">
-                <path d="M32 10v34"></path>
-                <path d="M18 18h28"></path>
-                <path d="M12 54h40"></path>
-                <path d="M18 18l-8 10h16z"></path>
-                <path d="M46 18l-8 10h16z"></path>
-                <path d="M18 46c-6 0-10-4-10-10"></path>
-                <path d="M46 46c6 0 10-4 10-10"></path>
+            <span class="stats__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M8 6h8v3a4 4 0 0 1-8 0V6Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
+                <path d="M9 16h6M10 19h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M6 7H4a2 2 0 0 0 2 2M18 7h2a2 2 0 0 1-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
               </svg>
-            </div>
+            </span>
             <p class="stats__number" data-target="50" data-suffix="+">0+</p>
             <p class="stats__label">Cases Won</p>
           </article>
           <article class="stats__card">
-            <div class="stats__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" role="presentation" focusable="false">
-                <circle cx="32" cy="32" r="20"></circle>
-                <path d="M12 32h40"></path>
-                <path d="M32 12c7 5 11 12 11 20s-4 15-11 20"></path>
-                <path d="M32 12c-7 5-11 12-11 20s4 15 11 20"></path>
+            <span class="stats__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M4 12h16M12 4a12 12 0 0 1 0 16M12 4a12 12 0 0 0 0 16" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
               </svg>
-            </div>
+            </span>
             <p class="stats__number" data-target="15" data-suffix="+">0+</p>
             <p class="stats__label">International Clients</p>
           </article>
           <article class="stats__card">
-            <div class="stats__icon" aria-hidden="true">
-              <svg viewBox="0 0 64 64" role="presentation" focusable="false">
-                <circle cx="24" cy="24" r="7"></circle>
-                <circle cx="40" cy="26" r="6"></circle>
-                <path d="M12 46c0-7 6-12 12-12s12 5 12 12"></path>
-                <path d="M34 46c0-6 5-10 10-10s8 4 8 10"></path>
+            <span class="stats__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M12 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" stroke="currentColor" stroke-width="1.8"/>
+                <path d="M5 19a7 7 0 0 1 14 0" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                <path d="M12 11v3m0 2v.01" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
               </svg>
-            </div>
+            </span>
             <p class="stats__number" data-target="12" data-suffix="+">0+</p>
             <p class="stats__label">Legal Experts</p>
           </article>
@@ -408,37 +396,16 @@
         const mobileMenu = document.getElementById("mobileMenu");
         if (!menuToggle || !mobileMenu) return;
 
-        const closeMenu = () => {
-          mobileMenu.classList.remove("mobile-nav--open");
-          menuToggle.setAttribute("aria-expanded", "false");
-          document.body.classList.remove("body--menu-open");
-        };
-
         menuToggle.addEventListener("click", function () {
           const isOpen = mobileMenu.classList.toggle("mobile-nav--open");
           menuToggle.setAttribute("aria-expanded", String(isOpen));
-          document.body.classList.toggle("body--menu-open", isOpen);
         });
 
         mobileMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", function () {
-            closeMenu();
+            mobileMenu.classList.remove("mobile-nav--open");
+            menuToggle.setAttribute("aria-expanded", "false");
           });
-        });
-
-        document.addEventListener("click", function (event) {
-          if (!mobileMenu.classList.contains("mobile-nav--open")) return;
-          if (mobileMenu.contains(event.target) || menuToggle.contains(event.target)) return;
-          closeMenu();
-        });
-
-        document.addEventListener("keydown", function (event) {
-          if (event.key !== "Escape") return;
-          closeMenu();
-        });
-
-        window.addEventListener("resize", function () {
-          if (window.innerWidth > 768) closeMenu();
         });
       })();
     </script>
