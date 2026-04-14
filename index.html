@@ -53,6 +53,7 @@
         <a href="#about">About</a>
         <a href="#testimonials">Testimonials</a>
         <a href="#contact">Contact</a>
+        <a class="mobile-nav__cta" href="#contact">Book Consultation</a>
       </nav>
     </header>
 
@@ -407,16 +408,37 @@
         const mobileMenu = document.getElementById("mobileMenu");
         if (!menuToggle || !mobileMenu) return;
 
+        const closeMenu = () => {
+          mobileMenu.classList.remove("mobile-nav--open");
+          menuToggle.setAttribute("aria-expanded", "false");
+          document.body.classList.remove("body--menu-open");
+        };
+
         menuToggle.addEventListener("click", function () {
           const isOpen = mobileMenu.classList.toggle("mobile-nav--open");
           menuToggle.setAttribute("aria-expanded", String(isOpen));
+          document.body.classList.toggle("body--menu-open", isOpen);
         });
 
         mobileMenu.querySelectorAll("a").forEach((link) => {
           link.addEventListener("click", function () {
-            mobileMenu.classList.remove("mobile-nav--open");
-            menuToggle.setAttribute("aria-expanded", "false");
+            closeMenu();
           });
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!mobileMenu.classList.contains("mobile-nav--open")) return;
+          if (mobileMenu.contains(event.target) || menuToggle.contains(event.target)) return;
+          closeMenu();
+        });
+
+        document.addEventListener("keydown", function (event) {
+          if (event.key !== "Escape") return;
+          closeMenu();
+        });
+
+        window.addEventListener("resize", function () {
+          if (window.innerWidth > 768) closeMenu();
         });
       })();
     </script>
